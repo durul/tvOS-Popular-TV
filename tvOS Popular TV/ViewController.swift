@@ -41,8 +41,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     print(error.debugDescription)
                 } else {
                     do {
-                        if let dta = data {
-                            let dict = try NSJSONSerialization.JSONObjectWithData(dta, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject>
+                        if let mydata = data {
+                            let dict = try NSJSONSerialization.JSONObjectWithData(mydata, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject>
                             if let results = dict!["results"] as? [Dictionary<String, AnyObject>] {
                                 //print(results)
                                 for obj in results {
@@ -57,6 +57,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             }
                         }
                     } catch {
+                        
                         
                     }
                 }
@@ -74,8 +75,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TvCell", forIndexPath: indexPath) as? TVCell {
-            let movie = tvShows[indexPath.row]
-            cell.configureCell(movie)
+            let tvshows = tvShows[indexPath.row]
+            cell.configureCell(tvshows)
+            
             if cell.gestureRecognizers?.count == nil {
                 let tap = UITapGestureRecognizer(target: self, action: "tapped:")
                 tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]  //enum
@@ -86,10 +88,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return TVCell()
         }
     }
+    
     func tapped(gesture: UITapGestureRecognizer) {
         if let cell = gesture.view as? TVCell {
             //load the segue viewController and pass in the move
-            //print("tap detected...\(cell.movieLbl.text)")
+
             if NSClassFromString("UIAlertController") != nil {
                 let title = cell.tvLbl.text
                 let alert = UIAlertController(title: title, message: cell.overview , preferredStyle: .Alert)
@@ -98,16 +101,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tvShows.count
     }
+    
     //MARK: UICollectionViewDelegateFlowlayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(333, 500)
     }
+    
+    // tvOS Popular tv shows Image Focus
+
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         if let prev = context.previouslyFocusedView as? TVCell {
             UIView.animateWithDuration(0.1, animations: { () -> Void in

@@ -1,4 +1,4 @@
-# PopularTvShows-tvOS
+# Popular TvShows tvOS
 
 uses new tvOS and UICollectionView and Cell for Popular Tv Shows
 
@@ -12,6 +12,12 @@ Swift 2.1
 Deployment Target = iOS 9.1
 
 Base SDK = iOS 9.1
+
+UITapGestureRecognizer
+
+Image Focus
+
+Icon Template
 
 Asset Credits
 -------------------------------------------------

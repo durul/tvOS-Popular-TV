@@ -18,9 +18,13 @@ class TVCell: UICollectionViewCell {
         if let title = tv.name {
             tvLbl.text = title
         }
+        
         if let overview = tv.overview {
             self.overview = overview
         }
+        
+        //tvOS Popular Tv Shows Image Focus Source
+
         if let path = tv.posterPath {
             if let url = NSURL(string: path) {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
