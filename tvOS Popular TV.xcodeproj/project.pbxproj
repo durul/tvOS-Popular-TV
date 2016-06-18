@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		2E49E90B1C0A022A00165DFA /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E90A1C0A022A00165DFA /* TV.swift */; };
 		2E49E90D1C0A02AA00165DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E49E90C1C0A02AA00165DFA /* Main.storyboard */; };
 		2E49E9101C0A03AD00165DFA /* TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E90F1C0A03AD00165DFA /* TVCell.swift */; };
+		2EA215D01D14DCA800110362 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA215CF1D14DCA800110362 /* Movie.swift */; };
+		2EA215D21D14DCB300110362 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA215D11D14DCB300110362 /* MovieCell.swift */; };
+		2EA215D41D14DCB800110362 /* ViewControllerFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA215D31D14DCB800110362 /* ViewControllerFilms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2E49E8DB1C0A01FF00165DFA /* tvOS Popular TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS Popular TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E49E8DE1C0A01FF00165DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E49E8DE1C0A01FF00165DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "tvOS Popular TV/AppDelegate.swift"; sourceTree = "<group>"; };
 		2E49E8E01C0A01FF00165DFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2E49E8E51C0A01FF00165DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E49E8E71C0A01FF00165DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		2E49E90A1C0A022A00165DFA /* TV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		2E49E90C1C0A02AA00165DFA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2E49E90F1C0A03AD00165DFA /* TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCell.swift; sourceTree = "<group>"; };
+		2EA215CF1D14DCA800110362 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		2EA215D11D14DCB300110362 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		2EA215D31D14DCB800110362 /* ViewControllerFilms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFilms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		2E49E8D21C0A01FF00165DFA = {
 			isa = PBXGroup;
 			children = (
+				2E49E8DE1C0A01FF00165DFA /* AppDelegate.swift */,
 				2E49E90C1C0A02AA00165DFA /* Main.storyboard */,
 				2E49E8DD1C0A01FF00165DFA /* tvOS Popular TV */,
 				2E49E8EF1C0A01FF00165DFA /* tvOS Popular TVTests */,
@@ -100,9 +107,9 @@
 		2E49E8DD1C0A01FF00165DFA /* tvOS Popular TV */ = {
 			isa = PBXGroup;
 			children = (
+				2EA215CD1D14DC8000110362 /* Movie */,
 				2E49E90E1C0A039400165DFA /* Cell */,
 				2E49E9091C0A021200165DFA /* Data */,
-				2E49E8DE1C0A01FF00165DFA /* AppDelegate.swift */,
 				2E49E8E01C0A01FF00165DFA /* ViewController.swift */,
 				2E49E8E51C0A01FF00165DFA /* Assets.xcassets */,
 				2E49E8E71C0A01FF00165DFA /* Info.plist */,
@@ -131,6 +138,7 @@
 		2E49E9091C0A021200165DFA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2EA215CF1D14DCA800110362 /* Movie.swift */,
 				2E49E90A1C0A022A00165DFA /* TV.swift */,
 			);
 			name = Data;
@@ -140,6 +148,23 @@
 			isa = PBXGroup;
 			children = (
 				2E49E90F1C0A03AD00165DFA /* TVCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		2EA215CD1D14DC8000110362 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				2EA215D31D14DCB800110362 /* ViewControllerFilms.swift */,
+				2EA215CE1D14DC8700110362 /* Cell */,
+			);
+			name = Movie;
+			sourceTree = "<group>";
+		};
+		2EA215CE1D14DC8700110362 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2EA215D11D14DCB300110362 /* MovieCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -212,7 +237,6 @@
 				TargetAttributes = {
 					2E49E8DA1C0A01FF00165DFA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = MVFU2L7FRK;
 					};
 					2E49E8EB1C0A01FF00165DFA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -225,7 +249,7 @@
 				};
 			};
 			buildConfigurationList = 2E49E8D61C0A01FF00165DFA /* Build configuration list for PBXProject "tvOS Popular TV" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -277,8 +301,11 @@
 			files = (
 				2E49E8E11C0A01FF00165DFA /* ViewController.swift in Sources */,
 				2E49E9101C0A03AD00165DFA /* TVCell.swift in Sources */,
+				2EA215D21D14DCB300110362 /* MovieCell.swift in Sources */,
 				2E49E8DF1C0A01FF00165DFA /* AppDelegate.swift in Sources */,
 				2E49E90B1C0A022A00165DFA /* TV.swift in Sources */,
+				2EA215D41D14DCB800110362 /* ViewControllerFilms.swift in Sources */,
+				2EA215D01D14DCA800110362 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +515,7 @@
 				2E49E9021C0A01FF00165DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E49E9031C0A01FF00165DFA /* Build configuration list for PBXNativeTarget "tvOS Popular TVTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +524,7 @@
 				2E49E9051C0A01FF00165DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E49E9061C0A01FF00165DFA /* Build configuration list for PBXNativeTarget "tvOS Popular TVUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +533,7 @@
 				2E49E9081C0A01FF00165DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
