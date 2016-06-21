@@ -17,8 +17,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //Mark: Variable
     @IBOutlet weak var collectionTvView: UICollectionView!
 
-    let defaultSize = CGSizeMake(297, 420)
-    let focusSize = CGSizeMake(321, 455)
+    let defaultSize = CGSize(width: 297, height: 420)
+    let focusSize = CGSize(width: 321, height: 455)
     
     let BASE_URL = "http://api.themoviedb.org/3/tv/popular?api_key=ff743742b3b6c89feb59dfc138b4c12f"
     
@@ -28,21 +28,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collectionTvView.delegate = self
         collectionTvView.dataSource = self
-        collectionTvView.layer.backgroundColor = UIColor.blackColor().CGColor
+        collectionTvView.layer.backgroundColor = UIColor.black().cgColor
         retriveData()
     }
     
     func retriveData() {
-        if let url = NSURL(string: BASE_URL) {
-            let request = NSURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+        if let url = URL(string: BASE_URL) {
+            let request = URLRequest(url: url)
+            let session = URLSession.shared()
+            let task = session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
                     print(error.debugDescription)
                 } else {
                     do {
                         if let mydata = data {
-                            let dict = try NSJSONSerialization.JSONObjectWithData(mydata, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject>
+                            let dict = try JSONSerialization.jsonObject(with: mydata, options: JSONSerialization.ReadingOptions.allowFragments) as? Dictionary<String, AnyObject>
                             if let results = dict!["results"] as? [Dictionary<String, AnyObject>] {
                                 //print(results)
                                 for obj in results {
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                     LoadedShows.cache[tvshows.name] = tvshows
                                 }
                                 //web request on background thread...get UI thread
-                                dispatch_async(dispatch_get_main_queue()) {
+                                DispatchQueue.main.async {
                                     self.collectionTvView.reloadData()
                                 }
                             }
@@ -73,14 +73,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: UICollectionViewDelegate
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TvCell", forIndexPath: indexPath) as? TVCell {
-            let tvshows = tvShows[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TvCell", for: indexPath) as? TVCell {
+            let tvshows = tvShows[(indexPath as NSIndexPath).row]
             cell.configureCell(tvshows)
             
             if cell.gestureRecognizers?.count == nil {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapped(_:)))
-                tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]  //enum
+                tap.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]  //enum
                 cell.addGestureRecognizer(tap)
             }
             return cell
@@ -89,50 +89,50 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func tapped(gesture: UITapGestureRecognizer) {
+    func tapped(_ gesture: UITapGestureRecognizer) {
         if let cell = gesture.view as? TVCell {
             //load the segue viewController and pass in the move
 
             if NSClassFromString("UIAlertController") != nil {
                 let title = cell.tvLbl.text
-                let alert = UIAlertController(title: title, message: cell.overview , preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: title, message: cell.overview , preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
             }
         }
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tvShows.count
     }
     
     //MARK: UICollectionViewDelegateFlowlayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(333, 500)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 333, height: 500)
     }
     
     // tvOS Popular tv shows Image Focus
 
-    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if let prev = context.previouslyFocusedView as? TVCell {
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
                 prev.tvImg.frame.size = self.defaultSize
-                prev.tvImg.layer.shadowColor = UIColor.blueColor().CGColor
+                prev.tvImg.layer.shadowColor = UIColor.blue().cgColor
                 prev.tvImg.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-                prev.tvLbl.textColor = UIColor.whiteColor()
+                prev.tvLbl.textColor = UIColor.white()
             })
         }
         if let next = context.nextFocusedView as? TVCell {
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
                 next.tvImg.frame.size = self.focusSize
-                next.tvImg.layer.shadowColor = UIColor.redColor().CGColor
+                next.tvImg.layer.shadowColor = UIColor.red().cgColor
                 next.tvImg.layer.shadowOffset = CGSize(width: -5.0, height: -5.0)
                 next.tvImg.layer.shadowOpacity = 0.5
-                next.tvLbl.textColor = UIColor.redColor()
+                next.tvLbl.textColor = UIColor.red()
             })
         }
     }

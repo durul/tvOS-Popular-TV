@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="7PD-Xr-q3l">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7PD-Xr-q3l">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Shows-->
@@ -18,7 +19,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ytl-SY-hcQ">
-                                <rect key="frame" x="0.0" y="55" width="1920" height="1025"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hPf-rc-rLa">
                                     <size key="itemSize" width="303" height="508"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,32 +27,29 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TvCell" id="9Bg-dn-HaI" customClass="TVCell" customModule="tvOS_Popular_TV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="259" width="303" height="508"/>
+                                        <frame key="frameInset" minY="259" width="303" height="508"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="508"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkingdead" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-Vc-Xcb">
-                                                    <rect key="frame" x="7" y="12" width="288" height="420"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="420" id="jJn-ce-Ee3"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="420" id="wR1-in-yte"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walking Dead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFB-Mn-ztn">
-                                                    <rect key="frame" x="0.0" y="467" width="303" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="8gv-f5-ImU"/>
                                                         <constraint firstAttribute="height" constant="21" id="HQE-uN-ETh"/>
                                                         <constraint firstAttribute="width" constant="303" id="JpB-pz-jy8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="VVU-Vc-Xcb" firstAttribute="centerX" secondItem="9Bg-dn-HaI" secondAttribute="centerX" id="0wQ-TL-eOf"/>
@@ -69,7 +66,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ytl-SY-hcQ" secondAttribute="trailing" constant="-20" id="3sf-AF-skP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ytl-SY-hcQ" secondAttribute="bottom" id="JYo-Wm-yFX"/>
@@ -93,7 +90,7 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YHM-yL-TIz">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pRs-NA-PQg"/>
@@ -107,7 +104,7 @@
         <!--Movie-->
         <scene sceneID="917-7I-NS2">
             <objects>
-                <viewController id="hCV-rs-eJL" customClass="ViewControllerFilms" customModule="PopularMovies_tvOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hCV-rs-eJL" customClass="ViewControllerFilms" customModule="tvOS_Popular_TV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdY-74-GEz"/>
                         <viewControllerLayoutGuide type="bottom" id="gr9-3z-gzt"/>
@@ -117,7 +114,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YnC-td-E8X">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YRi-dB-Or7">
                                     <size key="itemSize" width="303" height="510"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -125,33 +121,30 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="Yqq-bJ-t9M" customClass="MovieCell" customModule="PopularMovies_tvOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="510"/>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="Yqq-bJ-t9M" customClass="MovieCell" customModule="tvOS_Popular_TV" customModuleProvider="target">
+                                        <frame key="frameInset" width="303" height="510"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="510"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Terminator" translatesAutoresizingMaskIntoConstraints="NO" id="r5w-yc-ufh">
-                                                    <rect key="frame" x="7" y="12" width="288" height="420"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="420" id="GGJ-cJ-DFD"/>
                                                         <constraint firstAttribute="height" constant="420" id="rtY-8R-gGS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terminator Genisys" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgi-ys-fjA">
-                                                    <rect key="frame" x="0.0" y="467" width="303" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="9LR-hT-dKk"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="BwB-G1-1Kv"/>
                                                         <constraint firstAttribute="width" constant="303" id="MhA-eP-r2H"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="r5w-yc-ufh" firstAttribute="top" secondItem="Yqq-bJ-t9M" secondAttribute="topMargin" constant="4" id="Apf-e9-Sil"/>
@@ -168,7 +161,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YnC-td-E8X" firstAttribute="top" secondItem="zdY-74-GEz" secondAttribute="bottom" id="RcN-6o-5hu"/>
                             <constraint firstItem="gr9-3z-gzt" firstAttribute="top" secondItem="YnC-td-E8X" secondAttribute="bottom" id="Rzt-zb-KRp"/>
