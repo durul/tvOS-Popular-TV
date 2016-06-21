@@ -1,23 +1,26 @@
 # Popular Shows & Films tvOS
 
-uses new tvOS and UICollectionView and Cell for Popular Tv Shows and Films
+Uses new tvOS and UICollectionView and customCell for popular Tv Shows and Films
 
 
 Requirements
 ---- 
-Xcode 7.3
+Xcode 8.0+
 
-Swift 2.2
+Swift 3
 
-Deployment Target = iOS 9.3
+Deployment Target = iOS 10
 
-Base SDK = iOS 9.3
+Base SDK = iOS 10
 
 UITapGestureRecognizer
+
+UITraitCollection
 
 Image Focus
 
 Icon Template
+
 
 Asset Credits
 ---- ---------------------------------------------
@@ -29,8 +32,6 @@ Apple: https://developer.apple.com/tvos/human-interface-guidelines/icons-and-ima
 json converter: https://jsonformatter.curiousconcept.com
 
 Linkedin: http://www.linkedin.com/pub/durul-dalkanat/58/48a/b2a
-
-Facebook: http://www.facebook.com/durul.dalkanat
 
 Twitter: https://www.twitter.com/duruldalkanat
 
